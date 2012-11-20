@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML5</title>
+
+        <style type="text/css">
+                #pl {
+                        position: absolute;
+                        z-index:999;
+                        padding:5px 5px 25px 5px;
+                        background-color: #FFF4d1;
+                        border:solid 1px #D1A000;
+                }
+                #ca {
+                        height: 550px;
+                        width: 750px;
+                        margin: 20px auto;
+                        background-color: #FFF4d1;
+                }
+
+                #cb {
+                        height: 20px;
+                        width: 750px;
+                        margin: -20px auto;
+                        background-color: #FFF4d1;
+                }
+
+                .i {
+                        border-color: #FFEEB8 #D1A000 #D1A000 #FFEEB8;
+                        background-color: #FFDC6B;
+                        color: #382B00;
+                        border-style: solid;
+                        border-width: 1px;
+                        width:60px;
+                }
+
+                h1 {
+                        text-align: center;
+                }
+
+                body {
+                        width: 750px;
+                        margin: 0px auto;
+                        font-family: sans-serif;
+                        background-color: #FFFAEB
+                }
+
+                a {
+                        text-decoration: none;
+                }
+</style>
+  </head>
+
+<body>
+
+  <h1>&nbsp;</h1>
+
+  <div id="pl">
+  <div id="ca">
+  	<span style="position: absolute; bottom: 5px; font-size: 8pt; color: #D1A000;">(Steuerung mit Pfeiltasten)</span>
+  	<input style="position: absolute; right:5px; top:5px; width: 22px;" class="i" type="submit" value="X" onclick="GAME.stop();var e=document.getElementById('pl'); e.parentNode.removeChild(e);return false;"/>
+  </div>
+  <div id="cb">
+  <div style="width:250px; margin: 0px auto; white-space: nowrap;">
+  <input class="i" type="submit" value="<<" onclick="GAME.prevLevel()"/>
+  <input class="i" type="submit" value=">>" onclick="GAME.nextLevel()"/>
+  <input class="i" type="submit" value="Neu" onclick="GAME.restartLevel()"/>
+  <input class="i" type="submit" value="Undo" onclick="GAME.undo()"/>
+  </div>
+  </div>
+  <script src="gscr.js"></script>
+
+  <script>
+
+    var el = document.getElementById("ca");
+
+        // TODO: Browsertest
+    if (true) {
+      window.setTimeout(function () { GAME.init(el, "./", "#FFF4d1"); }, 0);
+    } else {
+      el.innerHTML = "Sorry, needs a decent browser<br /><small>" +
+        "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
+    }
+  </script>
+
+</body>
+</html>
